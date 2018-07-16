@@ -17,7 +17,7 @@ $(document).ready(function () {
         $('.btn').removeClass('allfill');
     });
     //監控每個input都有東西時btn才變色
-    $('.form > input').blur(function (e) {
+    $('.input input').blur(function (e) {
         e.preventDefault();
         if ($('#useraccount').val() !== '' && $('#userpassword').val() !== '' && $('#userpasswordconfirm').val() !== '') {
             $('.btn').addClass('allfill');
