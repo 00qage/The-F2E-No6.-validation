@@ -22,9 +22,9 @@
         <header class="header">
             <ul id="progressbar" class="d-flex justify-content-between">
                 <li class="active"></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li data-step="1"></li>
+                <li data-step="2"></li>
+                <li data-step="3"></li>
             </ul>
             <div class="title">Create Account</div>
             <div class="subtitle">Glad to see you here!</div>
@@ -42,7 +42,9 @@
             <div class="input userpasswordconfirm">
                 <input id="userpasswordconfirm" type='password' name='userpasswordconfirm' placeholder="●●●●●●●●">
             </div>
-            <button class="btn">SUBMIT & NEXT</button>
+            <button class="btn" disabled >SUBMIT & NEXT</button>
+
+            <input class="date-input" type="date" value="Date"></input>
         </section>
 
     </section>

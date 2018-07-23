@@ -104,7 +104,10 @@ body {
       height: 16px;
       color: #0275D8;
       border-radius: 50%;
-      border: 2px solid #BEE1FF; }
+      border: 2px solid #BEE1FF;
+      -webkit-transition: background 1500ms ease;
+      -o-transition: background 1500ms ease;
+      transition: background 1500ms ease; }
       .header #progressbar li:not(:first-child)::before {
         position: absolute;
         z-index: 0;
@@ -116,12 +119,22 @@ body {
         content: '';
         width: 72px;
         height: 2px;
-        background: #BEE1FF; }
+        background: -webkit-gradient(linear, left top, right top, color-stop(50%, #0275D8), color-stop(50%, #BEE1FF));
+        background: -webkit-linear-gradient(left, #0275D8 50%, #BEE1FF 50%);
+        background: -o-linear-gradient(left, #0275D8 50%, #BEE1FF 50%);
+        background: linear-gradient(to right, #0275D8 50%, #BEE1FF 50%);
+        background-size: 200% 100%;
+        background-position: right bottom;
+        -webkit-transition: background 1000ms ease;
+        -o-transition: background 1000ms ease;
+        transition: background 1000ms ease; }
       .header #progressbar li.active {
         width: 16pxm;
         height: 16pxm;
         border: 0;
         background: #0275D8; }
+        .header #progressbar li.active:not(:first-child)::before {
+          background-position: left bottom; }
         .header #progressbar li.active::after {
           position: absolute;
           left: 50%;
@@ -205,10 +218,22 @@ body {
   outline: none;
   -webkit-transition: opacity .5s;
   -o-transition: opacity .5s;
-  transition: opacity .5s; }
+  transition: opacity .5s;
+  cursor: not-allowed; }
   .form .btn:hover {
     opacity: 0.5; }
   .form .btn.allfill {
-    background: #0275D8; }
+    background: #0275D8;
+    cursor: pointer; }
     .form .btn.allfill:hover {
       opacity: 1; }
+
+.form .date-input {
+  color: #fff;
+  margin: 10px 0 0 0;
+  padding: 8px 16px;
+  background: #BEE1FF;
+  border-radius: 8px;
+  border: none;
+  font-family: Roboto Regular;
+  font-size: 16px; }

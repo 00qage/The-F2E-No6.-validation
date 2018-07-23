@@ -74,6 +74,7 @@ body {
             color: $primary-blue;
             border-radius: 50%;
             border: 2px solid $primary-blue-2;
+            transition: background 1500ms ease;
             &:not(:first-child)::before {
                 position: absolute;
                 z-index: 0;
@@ -83,14 +84,21 @@ body {
                 transform: translateY(-50%);
                 content: '';
                 width: 72px;
-                height: 2px;
-                background: $primary-blue-2;
+                height: 2px; // background: $primary-blue-2;
+                background: linear-gradient( to right, $primary-blue 50%, $primary-blue-2 50%); // background: linear-gradient( to right, $color 50%, rgba(255, 255, 255, .5) 50%) ;
+                background-size: 200% 100%;
+                background-position: right bottom;
+                transition: background 1000ms ease;
             }
             &.active {
                 width: 16pxm;
                 height: 16pxm;
                 border: 0;
                 background: $primary-blue;
+                &:not(:first-child)::before {
+                    // background: $primary-blue;
+                    background-position: left bottom;
+                }
                 &::after {
                     position: absolute;
                     left: 50%;
@@ -129,7 +137,7 @@ body {
         line-height: 24px;
         margin: 24px 0 8px 0;
     }
-    .input{
+    .input {
         position: relative;
         input {
             width: 100%;
@@ -144,45 +152,44 @@ body {
                 color: $primary-gray;
                 line-height: 24px;
             }
-    }
-    &.error{
-        &::after {
-            position: absolute;
-            right: 20px;
-            top: 16px;
-            content: "\f071";
-            font-family: 'Font Awesome 5 Free';
-            color: $primary-orange;
-            font-weight: 900;
-            font-size: 20px;
         }
-        input{
-            border: 2px solid $primary-orange;
-        }
-    }
-    // input {
-    //     position: relative;
-    //     width: 100%;
-    //     height: 52px;
-    //     padding-left: 20px;
-    //     font-size: 20px;
-    //     border: 2px solid #000000;
-    //     border-radius: 8px;
-    //     &::placeholder {
-    //         font-size: 20px;
-    //         color: $primary-gray;
-    //         line-height: 24px;
-    //     }
-    //     &.error {
-    //         border: 2px solid $primary-orange;
-    //         &::before {
-    //             position: absolute;
-    //             content: "\f071";
-    //             font-family: 'Font Awesome 5 Free';
-    //             font-weight: 900;
-    //             font-size: 20px;
-    //         }
-    //     }
+        &.error {
+            &::after {
+                position: absolute;
+                right: 20px;
+                top: 16px;
+                content: "\f071";
+                font-family: 'Font Awesome 5 Free';
+                color: $primary-orange;
+                font-weight: 900;
+                font-size: 20px;
+            }
+            input {
+                border: 2px solid $primary-orange;
+            }
+        } // input {
+        //     position: relative;
+        //     width: 100%;
+        //     height: 52px;
+        //     padding-left: 20px;
+        //     font-size: 20px;
+        //     border: 2px solid #000000;
+        //     border-radius: 8px;
+        //     &::placeholder {
+        //         font-size: 20px;
+        //         color: $primary-gray;
+        //         line-height: 24px;
+        //     }
+        //     &.error {
+        //         border: 2px solid $primary-orange;
+        //         &::before {
+        //             position: absolute;
+        //             content: "\f071";
+        //             font-family: 'Font Awesome 5 Free';
+        //             font-weight: 900;
+        //             font-size: 20px;
+        //         }
+        //     }
     }
     .btn {
         margin-top: 40px;
@@ -197,14 +204,27 @@ body {
         border: 0;
         outline: none;
         transition: opacity .5s;
+        cursor: not-allowed;
         &:hover {
             opacity: 0.5;
         }
         &.allfill {
             background: $primary-blue;
+            cursor: pointer;
             &:hover {
                 opacity: 1;
             }
         }
+    }
+    .date-input {
+        color: #fff;
+        margin: 10px 0 0 0;
+        padding: 8px 16px;
+        background: $primary-blue-2;
+        border-radius: 8px;
+        border: none;
+        font-family: Roboto Regular;
+        font-size: 16px;
+
     }
 }

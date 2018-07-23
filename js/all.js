@@ -1,5 +1,8 @@
 $(document).ready(function () {
     //按next時如果沒內容變橘色
+
+    var currentStep = 1;
+
     $('.btn').click(function (e) {
         e.preventDefault();
         if ($('#useraccount').val() == '') {
@@ -9,6 +12,12 @@ $(document).ready(function () {
         } else if ($('#userpasswordconfirm').val() == '') {
             $('.userpasswordconfirm').addClass('error');
         }
+
+        $("#progressbar li[data-step='" + currentStep + "']").addClass('active');
+
+        currentStep++;
+
+
     });
     //點input時變回原樣
     $('.input input').focus(function (e) {
@@ -20,9 +29,14 @@ $(document).ready(function () {
     $('.input input').blur(function (e) {
         e.preventDefault();
         if ($('#useraccount').val() !== '' && $('#userpassword').val() !== '' && $('#userpasswordconfirm').val() !== '') {
-            $('.btn').addClass('allfill');
+            $('.btn').addClass('allfill').removeAttr("disabled");
         }
     });
 
+    // 點擊進度圓點增加active
+    // $('#progressbar li').click(function (e) {
+    //     e.preventDefault();
+    //     $(this).toggleClass('active');
+    // });
 
 });
